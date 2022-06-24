@@ -49,8 +49,61 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'dashboard' %}">
-               Welcome {{ user.username }} (Dashboard)</a>
+               Welcome {{ user.username }} {% if request.user.is_staff %} (Admin) {% else %} (Dashboard) {% endif %} </a>
             </li>
+            {% if request.user.is_staff %}
+              <li
+              {% if 'realtors-list' in request.path %}
+                class="nav-item active mr-3 dropdown"
+              {% else %}
+                class="nav-item dropdown mr-3"
+              {% endif %}
+              >
+              <a id="dropdownMenu0" href="{% url 'realtors-list' %}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-uppercase">Admin</a>
+                <ul aria-labelledby="dropdownMenu0" class="dropdown-menu border-0 shadow bg-secondary">
+                    <li>
+                      <a 
+                        href="{% url 'realtors-list' %}" 
+                        {% if 'realtors-list' in request.path %}
+                          class="dropdown-item active"
+                        {% else %}
+                          class="dropdown-item"
+                        {% endif %}
+                      >Realtors</a>
+                    </li>
+                    <li>
+                      <a 
+                        href="{% url 'list_listings' %}"
+                        {% if 'list_listings' in request.path %}
+                          class="dropdown-item active"
+                        {% else %}
+                          class="dropdown-item"
+                        {% endif %}
+                      >Listings</a>
+                    </li>
+                    <li>
+                      <a 
+                        href="{% url 'inquiries-list' %}" 
+                        {% if 'inquiries-list' in request.path %}
+                          class="dropdown-item active"
+                        {% else %}
+                          class="dropdown-item"
+                        {% endif %}
+                      >Inquiries</a>
+                    </li>
+                    <li>
+                      <a 
+                        href="{% url 'users-list' %}" 
+                        {% if 'users-list' in request.path %}
+                          class="dropdown-item active"
+                        {% else %}
+                          class="dropdown-item"
+                        {% endif %}
+                      >Users</a>
+                    </li>
+                </ul>
+              </li>
+            {% endif %}
             <li class="nav-item mr-3">
               <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
                 <i class="fas fa-sign-out-alt"></i> Logout

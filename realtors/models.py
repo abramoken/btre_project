@@ -1,9 +1,11 @@
 from django.db import models
 from datetime import datetime
 
+from .validators import validate_file_size
+
 class Realtor(models.Model):
   name = models.CharField(max_length=200)
-  photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
+  photo = models.FileField(upload_to='photos/%Y/%m/%d/', validators=[validate_file_size])
   description = models.TextField(blank=True)
   phone = models.CharField(max_length=20)
   email = models.CharField(max_length=50)
