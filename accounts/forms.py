@@ -27,7 +27,7 @@ class RealtorForm(forms.ModelForm):
         exclude = ['is_mvp', 'hire_date']
 
         widgets = {
-            'description':widgets.Textarea(attrs={'type':'textarea','class': 'form-control rounded','rows':'5'}),
+            'description':widgets.Textarea(attrs={'type':'textarea','name':'editor1', 'class': 'form-control rounded','rows':'5'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -49,7 +49,7 @@ class ListingForm(forms.ModelForm):
         exclude = ['is_published', 'list_date']
 
         widgets = {
-            'description':widgets.Textarea(attrs={'type':'textarea','class': 'form-control rounded','rows':'5'}),
+            'description':widgets.Textarea(attrs={'type':'textarea','name':'editor1','class': 'form-control rounded','rows':'5'}),
         }
 
     def __init__(self, *args, **kwargs):
