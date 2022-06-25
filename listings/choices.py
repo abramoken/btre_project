@@ -21,6 +21,7 @@ price_choices = {
   '700000':'$700,000',
   '800000':'$800,000',
   '900000':'$900,000',
+  '999999':'$999,999',
   '1000000':'$1M+',
 }
 
@@ -45,6 +46,7 @@ state_choices = {
         'IN': 'Indiana',
         'KS': 'Kansas',
         'KY': 'Kentucky',
+        'KL': 'Kampala',
         'LA': 'Louisiana',
         'MA': 'Massachusetts',
         'MD': 'Maryland',

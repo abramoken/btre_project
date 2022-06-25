@@ -56,8 +56,10 @@ def search(request):
   # Price
   if 'price' in request.GET:
     price = request.GET['price']
-    if price:
+    if int(price) < 1000000:
       queryset_list = queryset_list.filter(price__lte=price)
+    else:
+      queryset_list = queryset_list.filter(price__gte=price)
 
   context = {
     'state_choices': state_choices,

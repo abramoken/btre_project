@@ -63,6 +63,11 @@
                         <label for="email">Email</label>
                         {{ form.email }}
                     </div>
+                    <div class="col-md-12 pt-3">
+                      {{ form.is_staff.errors }}
+                      <label for="is_staff" class="mr-2">Is Staff </label>
+                      {{ form.is_staff }}
+                    </div>
                     <br>
                     <div class="col-md-12 py-3">
                       <button type="submit" class="btn btn-secondary btn-block ">

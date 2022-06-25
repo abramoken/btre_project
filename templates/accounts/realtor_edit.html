@@ -68,6 +68,14 @@
                             <label for="email" class="form-label">Email Address</label>
                           {{ form.email }}
                         </div>
+                        <div class="col-md-6 d-flex float-left">
+                          <div class="pt-3">
+                              {{ form.is_mvp.errors }}
+                          
+                              {{ form.is_mvp }}
+                          </div>
+                          <label for="is_mvp" class="form-label ml-3 pt-3">Is MVP</label>
+                        </div>
                         <div class="col-md-12 form-group py-3">
                             {{ form.description.errors }}
                             <label for="description">Description</label>

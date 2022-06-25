@@ -47,6 +47,7 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Property</th>
+                        <th scope="col">Person</th>
                         <th scope="col">Inquiry Date</th>
                         <th></th>
                         <th></th>
@@ -57,6 +58,7 @@
                         <tr>
                           <td>{{ contact.id }}</td>
                           <td>{{ contact.listing }}</td>
+                          <td>{{ contact.name }}</td>
                           <td>{{ contact.contact_date }}</td>
                           <td>
                             <a class="btn btn-secondary" href="{% url 'listing' contact.listing_id %}">View Listing</a>

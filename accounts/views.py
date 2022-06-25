@@ -200,7 +200,7 @@ def listingEdit(request, listing_id=None):
       form.save()
       messages.success(request, "Listing Updated Successfully")
       # Save was successful, so redirect to another page
-      return redirect('listings-list')
+      return redirect('list_listings')
 
     return render(request, 'accounts/listing_edit.html', {'form': form})      
   else:

@@ -10,21 +10,22 @@ class UserEditForm(forms.ModelForm):
     
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email')
+        fields = ('first_name', 'last_name', 'email', 'is_staff')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'Firstname'})
         self.fields['last_name'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'Lastname'})
         self.fields['email'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'Email'})
+        self.fields['is_staff'].widget.attrs.update({'class': 'rounded'})
 
 # Realtor Create Form
 class RealtorForm(forms.ModelForm):
     
     class Meta:
         model = Realtor
-        fields = ('name', 'photo', 'description', 'phone', 'email')
-        exclude = ['is_mvp', 'hire_date']
+        fields = ('name', 'photo', 'description', 'phone', 'is_mvp', 'email')
+        exclude = ['hire_date']
 
         widgets = {
             'description':widgets.Textarea(attrs={'type':'textarea','name':'editor1', 'class': 'form-control rounded','rows':'5'}),
@@ -36,6 +37,7 @@ class RealtorForm(forms.ModelForm):
         self.fields['photo'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'File'})
         self.fields['phone'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'Phone'})
         self.fields['email'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'Email'})
+        self.fields['is_mvp'].widget.attrs.update({'class': 'rounded'})
 
 # Realtor Edit Form
 class ListingForm(forms.ModelForm):
@@ -44,9 +46,9 @@ class ListingForm(forms.ModelForm):
         model = Listing
         fields = ('title', 'realtor', 'address', 'city', 'state', 'zipcode', 'price', 'description', 'sqft', 'lot_size',
             'bedrooms', 'bathrooms', 'garage', 'photo_main', 'photo_1' , 'photo_2', 'photo_3', 'photo_4', 'photo_5', 
-            'photo_5', 'photo_6'
+            'photo_5', 'photo_6', 'is_published',
         )
-        exclude = ['is_published', 'list_date']
+        exclude = ['list_date']
 
         widgets = {
             'description':widgets.Textarea(attrs={'type':'textarea','name':'editor1','class': 'form-control rounded','rows':'5'}),
@@ -66,6 +68,7 @@ class ListingForm(forms.ModelForm):
         self.fields['bedrooms'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'Bedrooms'})
         self.fields['bathrooms'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'Bathrooms'})
         self.fields['garage'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'Garage(s)'})
+        self.fields['is_published'].widget.attrs.update({'class': 'rounded'})
         self.fields['photo_main'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'File'})
 
         self.fields['photo_1'].widget.attrs.update({'class': 'form-control rounded', 'placeholder': 'File'})

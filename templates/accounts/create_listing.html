@@ -144,6 +144,14 @@
                                 <label for="photo_6" class="form-label">Photo 6</label>
                                 {{ form.photo_6 }}
                             </div>
+                            <div class="col-md-6 d-flex float-left">
+                                <div class="pt-5">
+                                    {{ form.is_published.errors }}
+                                
+                                    {{ form.is_published }}
+                                </div>
+                                <label for="is_published" class="form-label ml-3 pt-5">Is Published</label>
+                            </div>
                             <div class="col-md-12 form-group py-3">
                                 {{ form.description.errors }}
                                 <label for="description">Listing Description</label>
