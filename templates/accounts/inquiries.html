@@ -38,7 +38,7 @@
         <div class="col-md-12">
           <h2>Welcome {{ user.first_name }}</h2>
           {% if contacts %}
-            <p>Here are the property listings that you have inquired about</p>
+            <p>Here are all the property listings that have been inquired?</p>
             <div class="card">
               <div class="card-body shadow">
                 <div class="table-responsive">
@@ -47,6 +47,7 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Property</th>
+                        <th scope="col">Person</th>
                         <th scope="col">Inquiry Date</th>
                         <th></th>
                         <th></th>
@@ -57,12 +58,13 @@
                         <tr>
                           <td>{{ contact.id }}</td>
                           <td>{{ contact.listing }}</td>
+                          <td>{{ contact.name }}</td>
                           <td>{{ contact.contact_date }}</td>
                           <td>
                             <a class="btn btn-secondary" href="{% url 'listing' contact.listing_id %}">View Listing</a>
                           </td>
                           <td>
-                            <a class="btn btn-danger" href="{% url 'delete-inquiry' contact.id %}">
+                            <a class="btn btn-danger" href="{% url 'admin-delete-inquiry' contact.id %}">
                               <i class="fas fa-trash"></i>  Delete</a>
                           </td>
                         </tr>
@@ -73,7 +75,7 @@
               </div>
             </div>
           {% else %}
-            <p>You have not made any inquiries</p>
+            <p>There are no Inquiries made yet!!!</p>
           {% endif %}
         </div>
       </div>

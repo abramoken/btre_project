@@ -20,10 +20,10 @@ def index(request):
 
 def about(request):
     # Get all realtors
-    realtors = Realtor.objects.order_by('-hire_date')
+    realtors = Realtor.objects.order_by('-hire_date')[:3]
 
     # Get MVP
-    mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
+    mvp_realtors = Realtor.objects.filter(is_mvp=True).order_by('-hire_date')[:1]
 
     context = {
         'realtors': realtors,

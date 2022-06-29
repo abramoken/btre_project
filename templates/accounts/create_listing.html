@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+{% block title %} | User Dashboard {% endblock %}
+
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">Admin Dashboard</h1>
+          <p class="lead">Manage BT Real Estate Realtors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'list_listings' %}">
+              <i class="fas fa-less-than"></i> Listings List</a>
+          </li>
+          <li class="breadcrumb-item active"> Admin</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- User Creation Form -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+        <div class="row pt-3">
+            <div class="col mx-auto">
+                <div class="card shadow">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="text-center">
+                          <i class="fas fa-home"></i> Create Listing</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Alerts -->
+                        {% include 'partials/_alerts.html' %}
+                        <form action="" method="POST" class="row g-3" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+                            <div class="col-md-6">
+                                {{ form.realtor.errors }}
+                                <label for="realtor" class="form-label">Realtor</label> <br>
+                                {{ form.realtor}}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.title.errors }}
+                                <label for="title">Listing Title</label>
+                                {{ form.title }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.address.errors }}
+                                <label for="address">Listing Address</label>
+                                {{ form.address }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.city.errors }}
+                                <label for="city">Listing City</label>
+                                {{ form.city }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.state.errors }}
+                                <label for="state">Listing State</label>
+                                {{ form.state }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.zipcode.errors }}
+                                <label for="zipcode">Listing Zipcode</label>
+                                {{ form.zipcode }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.bedrooms.errors }}
+                                <label for="bedrooms">Listing Bedrooms</label>
+                                {{ form.bedrooms }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.bathrooms.errors }}
+                                <label for="bathrooms">Listing Bathrooms</label>
+                                {{ form.bathrooms }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.price.errors }}
+                                <label for="price">Listing Price</label>
+                                {{ form.price }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.garage.errors }}
+                                <label for="garage">Listing Garage(s)</label>
+                                {{ form.garage }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.sqft.errors }}
+                                <label for="sqft">Listing Square Feet</label>
+                                {{ form.sqft }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.lot_size.errors }}
+                                <label for="lot_size" class="form-label">Listing Plot Size</label>
+                                {{ form.lot_size }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.photo_main.errors }}
+                                <label for="photo_main" class="form-label">Main Photo</label>
+                                {{ form.photo_main }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.photo_1.errors }}
+                                <label for="photo_1" class="form-label">Photo 1</label>
+                                {{ form.photo_1 }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.photo_2.errors }}
+                                <label for="photo_2" class="form-label">Photo 2 </label>
+                                {{ form.photo_2 }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.photo_3.errors }}
+                                <label for="photo_3" class="form-label">Photo 3</label>
+                                {{ form.photo_3 }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.photo_4.errors }}
+                                <label for="photo_4" class="form-label">Photo 4</label>
+                                {{ form.photo_4 }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.photo_5.errors }}
+                                <label for="photo_5" class="form-label">Photo 5</label>
+                                {{ form.photo_5 }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.photo_6.errors }}
+                                <label for="photo_6" class="form-label">Photo 6</label>
+                                {{ form.photo_6 }}
+                            </div>
+                            <div class="col-md-6 d-flex float-left">
+                                <div class="pt-5">
+                                    {{ form.is_published.errors }}
+                                
+                                    {{ form.is_published }}
+                                </div>
+                                <label for="is_published" class="form-label ml-3 pt-5">Is Published</label>
+                            </div>
+                            <div class="col-md-12 form-group py-3">
+                                {{ form.description.errors }}
+                                <label for="description">Listing Description</label>
+                                {{ form.description }}
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-secondary btn-block ">
+                                    <i class="fas fa-check-circle"></i> Create Listing 
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section id="dashboard" class="py-4">
+
+  </section>
+  {% endblock %}

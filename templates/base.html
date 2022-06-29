@@ -14,11 +14,13 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <!-- Lightbox -->
   <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{% static 'css/dataTables.css' %}">
 
   <title>BT Real Estate {% block title %}{% endblock %}</title>
 </head>
 
-<body>
+<body style="overflow-x: hidden !important;">
   <!-- Top Bar -->
   {% include 'partials/_topbar.html' %}
   <!-- NavBar -->
@@ -33,6 +35,19 @@
   <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
   <script src="{% static 'js/lightbox.min.js' %} "></script>
   <script src="{% static 'js/main.js' %} "></script>
+  <script src="{% static 'js/dataTables.js' %} "></script>
+  <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+
+  <script>
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
+
+<script>
+    CKEDITOR.replace( 'editor1' );
+</script>
+
 </body>
 
 </html>
